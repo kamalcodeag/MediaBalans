@@ -1,0 +1,23 @@
+﻿@model FollowVM
+
+<div class="users-list-container">
+    @foreach (CustomUser customUser in Model.FilteredCustomUsers)
+    {
+        <div class="single-user-container d-flex justify-content-between p-3 mb-4" style="border:1px solid lightgray;height:80px">
+            <a asp-controller="Profile" asp-action="MyPosts" asp-route-userId="@customUser.Id">
+                <h4>@(customUser.FirstName + " " + customUser.LastName)</h4>
+            </a>
+            <div class="btn-secondary un-follow-btn btn px-4 py-3 d-flex align-items-center justify-content-between text-white" data-id="@customUser.Id" data-status="" style="height:40px;cursor:pointer">
+                <i class="far fa-plus-square mr-5" style="color:white;font-size:20px"></i>
+                <span class="" style="font-size:20px">İzlə</span>
+                <i class="un-follow-none far fa-check-square mr-5" style="color:white;font-size:20px"></i>
+                <span class="un-follow-none" style="font-size:20px">İzləyirəm</span>
+            </div>
+        </div>
+    }
+</div>
+
+@foreach (var item in Model.PairedUsers)
+{
+    <input class="paired-user-id" type="hidden" value="@item" />
+}

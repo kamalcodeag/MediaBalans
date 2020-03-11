@@ -1,0 +1,19 @@
+﻿@model MyPostsVM
+
+@if (TempData["PasswordChanged"] != null)
+{
+    <p class="text-center text-success mb-5">Şifrəniz dəyişdirildi !</p>
+}
+
+@if (ViewBag.AuthorOfPosts == 1)
+{
+    <form asp-controller="Profile" asp-action="CreatePost" method="post" class="mb-3">
+        <div class="d-flex flex-column justify-content-end w-100">
+            <textarea asp-for="@Model.Post.PostContent" placeholder="Nə düşünürsən ?" class="form-control form-group" style="height:150px;text-indent:10px"></textarea>
+            <input type="submit" class="form-group w-25 btn btn-primary align-self-end" value="Paylaş" />
+        </div>
+    </form>
+}
+
+<partial name="PostsPW" model="@Model" />
+

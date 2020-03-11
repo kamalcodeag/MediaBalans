@@ -1,0 +1,18 @@
+﻿@model FollowVM
+
+    <div class="users-list-container">
+        @foreach (ConnectedUser connectedUser in Model.MyFollowingUsers)
+        {
+            <div class="single-user-container d-flex justify-content-between p-3 mb-4" style="border:1px solid lightgray;height:80px">
+                <a asp-controller="Profile" asp-action="MyPosts" asp-route-userId="@connectedUser.FollowingId">
+                    <h4>@(connectedUser.Following.FirstName + " " + connectedUser.Following.LastName)</h4>
+                </a>
+                <div class="un-follow-btn btn btn-primary px-4 py-3 d-flex align-items-center justify-content-between text-white" data-id="@connectedUser.FollowingId" data-status="checked" style="height:40px;cursor:pointer">
+                    <i class="un-follow-none far fa-plus-square mr-5" style="color:white;font-size:20px"></i>
+                    <span class="un-follow-none" style="font-size:20px">İzlə</span>
+                    <i class="far fa-check-square mr-5" style="color:white;font-size:20px"></i>
+                    <span style="font-size:20px">İzləyirəm</span>
+                </div>
+            </div>
+        }
+    </div>

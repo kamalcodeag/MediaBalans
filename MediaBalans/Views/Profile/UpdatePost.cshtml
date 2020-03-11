@@ -1,0 +1,8 @@
+﻿@model Post
+
+<form asp-controller="Profile" asp-action="UpdatePost" asp-route-id="@Model.Id" method="post" class="update-post">
+    <div class="d-flex flex-column justify-content-end w-100">
+        <textarea asp-for="PostContent" class="form-group" style="height:150px;text-indent:10px"></textarea>
+        <input type="submit" class="form-group w-25 btn btn-primary align-self-end" value="Düzəliş et" />
+    </div>
+</form>

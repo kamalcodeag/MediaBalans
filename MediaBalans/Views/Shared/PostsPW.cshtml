@@ -1,0 +1,82 @@
+﻿@model MyPostsVM
+
+    <div class="my-posts-container w-100">
+        @if (Model.Posts.Count() > 0)
+        {
+            @foreach (Post post in Model.Posts)
+            {
+                <div class="single-post-container border-bottom mb-5 pb-5 d-flex flex-column">
+                    <div class="post-header-container d-flex justify-content-end" style="padding:10px;background-color:lightgray;border-top-left-radius:10px;border-top-right-radius:10px">
+                        @if (ViewBag.AuthorOfPosts == 1)
+                        {
+                            <a asp-controller="Profile" asp-action="UpdatePost" asp-route-id="@post.Id">
+                                <i class="fas fa-pen mr-4"></i>
+                            </a>
+                            <i class="fas fa-times"></i>
+                            <input class="post-id" type="hidden" value="@post.Id" />
+                        }
+                    </div>
+                    <div class="post-author-container d-flex justify-content-between" style="padding:10px;background-color:wheat;height:50px">
+                        <span>@(post.CustomUser.FirstName + " " + post.CustomUser.LastName) </span>
+                        <span>@(post.UpdatedAtTime > post.CreatedAtTime ? post.UpdatedAtTime.ToString("dd/MM/yyyy H:mm") : post.CreatedAtTime.ToString("dd/MM/yyyy H:mm"))</span>
+                    </div>
+                    <div class="post-content-container" style="padding:10px;background-color:white">
+                        @post.PostContent
+                    </div>
+                    @*<div class="post-buttons-container d-flex" style="background-color:white;height: 50px;border-bottom-left-radius:10px;border-bottom-right-radius:10px">
+                        <div class="d-flex justify-content-center" style="border-top:1px solid lightgray;border-right:1px solid lightgray;width:50%;padding:10px">
+                            <i class="far fa-thumbs-up" style="font-size:30px"></i>
+                            <i class="fas fa-thumbs-up" style="font-size:30px"></i>
+                        </div>
+                        <div class="d-flex justify-content-center" style="border-top:1px solid lightgray;width:50%;padding:10px">
+                            <i class="far fa-comment-alt" style="font-size:30px"></i>
+                        </div>
+                    </div>
+                    <div class="all-comments-container">
+                        <div class="comments-container align-self-end mb-1" style="padding:8px;width:95%">
+                            <div class="comments-header-container d-flex justify-content-between" style="background-color:antiquewhite;padding:4px;border-bottom:1px solid lightgray">
+                                <span>08.03.2020</span>
+                                <span>Kamal Əli</span>
+                            </div>
+                            <div class="comments-content-container" style="background-color:ghostwhite;padding:4px">
+                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                                including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simply random
+                                text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years
+                                old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                                the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites
+                                of the word in classical literature
+                            </div>
+                        </div>
+                        <div class="comments-container align-self-end mb-1" style="padding:8px;width:95%">
+                            <div class="comments-header-container d-flex justify-content-between" style="background-color:antiquewhite;padding:4px;border-bottom:1px solid lightgray">
+                                <span>08.03.2020</span>
+                                <span>Kamal Əli</span>
+                            </div>
+                            <div class="comments-content-container" style="background-color:ghostwhite;padding:4px">
+                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                                including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simply random
+                                text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years
+                                old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                                the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites
+                                of the word in classical literature
+                            </div>
+                        </div>
+                        <div class="comments-container align-self-end mb-1" style="padding:8px;width:95%">
+                            <div class="comments-header-container d-flex justify-content-between" style="background-color:antiquewhite;padding:4px;border-bottom:1px solid lightgray">
+                                <span>08.03.2020</span>
+                                <span>Kamal Əli</span>
+                            </div>
+                            <div class="comments-content-container" style="background-color:ghostwhite;padding:4px">
+                                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                                including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simply random
+                                text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years
+                                old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                                the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites
+                                of the word in classical literature
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+            }
+        }
+    </div>
